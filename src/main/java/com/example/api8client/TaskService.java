@@ -2,25 +2,27 @@ package com.example.api8client;
 
 import com.example.grpc.TaskServiceOuterClass;
 import org.json.JSONArray;
+import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+@Service
 public class TaskService {
 
-    public static JSONArray taskToJson(TaskServiceOuterClass.TaskResponse taskResponse){
-        JSONArray object = new JSONArray();
-        object.put(0, taskResponse.getId());
-        object.put(1, taskResponse.getName());
-        object.put(2, taskResponse.getDescription());
-        object.put(3, taskResponse.getDone());
-        return object;
+    public Task showTask(TaskServiceOuterClass.TaskResponse taskResponse)
+    {
+        return new Task(taskResponse.getId(),taskResponse.getName(),taskResponse.getDescription(),taskResponse.getDone());
     }
 
-    public JSONArray tasksToJson(TaskServiceOuterClass.AllTasksResponse casesResponse){
-        JSONArray products = new JSONArray();
-        for (int i = 0; i < casesResponse.getCasesCount(); i++){
-            products.put(i, taskToJson(casesResponse.getCases(i)));
+    public List<Task> showAllTAsks(TaskServiceOuterClass.AllTasksResponse tasksResponse)
+    {
+        List<Task> tasks=new ArrayList<>();
+        for (int i = 0; i < tasksResponse.getCasesCount(); i++) {
+            tasks.add(showTask(tasksResponse.getCases(i)));
         }
-        return products;
+        return tasks;
     }
+
     public Task addTask(Task task)
     {
         TaskServiceOuterClass.TaskResponse response = ClientServer.addTask(task);

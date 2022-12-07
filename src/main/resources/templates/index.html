@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Контакты</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-5">
+                <h2 class="heading-section">Список задач</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-wrap">
+                    <table class="table table-responsive-xl table-bordered">
+                        <div id="datatable">
+                        </div>
+                        <thead>
+                        <tr class="text-center">
+                            <th>Название</th>
+                            <th>Описание</th>
+                            <th>Выполнено?</th>
+                            <th>Действия</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                        <tr class="alert" role="alert" id="create">
+                                <td class="d-flex align-items-center">
+                                    <input class="form-control" type="text"  id="name" placeholder="Введите название" required>
+                                </td>
+                                <td class="">
+                                    <input class="form-control" type="text" id="description" placeholder="Введите описание" required>
+                                </td>
+                                <td><input class="form-control" type="checkbox" id="done" placeholder="" required></td>
+                                <td class="status"><span class="active">Добавить</span></td>
+                                <td>
+                                    <button type="submit" class="close">
+                                        <span aria-hidden="true"><i class="fa fa-plus"></i></span>
+                                    </button>
+                                </td>
+
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script src="js/rest.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!--<script src="js/main.js"></script>-->
+
+</body>
+</html>
+

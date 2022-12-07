@@ -8,6 +8,7 @@ public class Api8ClientApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(Api8ClientApplication.class, args);
+        ClientServer.startClientServer();
     }
 
 }
